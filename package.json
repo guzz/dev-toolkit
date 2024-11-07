@@ -5,6 +5,9 @@
   "main": "dist/index.js",
   "author": "guzz",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "jest --watch",
