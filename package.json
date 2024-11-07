@@ -1,6 +1,6 @@
 {
   "name": "@guzzj/dev-toolkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple set of utilities for ts development",
   "main": "dist/index.js",
   "author": "guzz",
