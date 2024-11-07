@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "allowJs": true,
+    "composite": false,
+    "typeRoots": ["./node_modules/@types"],
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "inlineSources": false,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noUnusedParameters": true,
+    "preserveWatchOutput": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": false,
+    "declarationMap": false,
+    "module": "commonjs",
+    "target": "ESNext",
+    "incremental": true,
+    "outDir": "./dist",
+    "isolatedModules": false,
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["src/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "typeRoots": ["./node_modules/@types"],
+  "exclude": ["dist", "coverage", "node_modules"]
+}
