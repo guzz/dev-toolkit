@@ -2,7 +2,7 @@
   "name": "@guzzj/dev-toolkit",
   "version": "1.0.0",
   "description": "A simple set of utilities for ts development",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "guzz",
   "license": "MIT",
   "scripts": {
