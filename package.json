@@ -9,9 +9,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "npm": {
-    "ignoreVersion": true
-  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "jest --watch",

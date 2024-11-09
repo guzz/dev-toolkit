@@ -14,6 +14,11 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
 
+      - name: git config
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -27,7 +32,9 @@ jobs:
         run: yarn build
 
       - name: Configure npm for publishing
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Update version and publish
         run: npx release-it --ci --npm.skipChecks
