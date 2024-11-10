@@ -17,7 +17,18 @@ type ValueOf<T, K> = T extends ReadonlyArray<infer U>
       : string | undefined
     : never
   : never
-
+/**
+ * It make sure that the environment variables are set and returns an object with the environment variables
+ * if the environment variables are not set it throws an error.
+ * You can pass an array of environment variable names or an array of arrays of environment variable names
+ * @param keys - An array of environment variable names, like that the error will be thrown if none of the environment variables are set
+ * @returns {EnvVariables<T>} - An object with the environment variables
+ * @example
+ * // Will throw an error if PORT or DATABASE_URL are not set
+ * const { PORT, DATABASE_URL } = assertEnvVariables(['PORT', 'DATABASE_URL'])
+ * // Will throw an error if PORT and PORT_NUMBER, or DATABASE_URL are not set
+ * const { PORT, PORT_NUMBER } = assertEnvVariables([['PORT', 'PORT_NUMBER'], 'DATABASE_URL'])
+ */
 export function assertEnvVariables<T extends PossibleArrays>(keys: T): CheckForOptional<EnvVariables<T>> {
   const variables: Partial<CheckForOptional<EnvVariables<T>>> = {}
   const errors: string[] = []

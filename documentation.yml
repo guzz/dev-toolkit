@@ -1,0 +1,15 @@
+toc:
+  - name: Utitlity methods
+    description: |
+      Methods to help developers with common tasks.
+    children:
+      - assertEnvVariables
+      - bindFunction
+      - encode
+      - decode
+  - name: Utility types
+    description: |
+      Types to help developers with common tasks.
+    children:
+      - Prettify
+      - DeepPartial

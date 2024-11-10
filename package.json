@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "A simple set of utilities for ts development",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts", 
+  "types": "dist/index.d.ts",
   "author": "guzz",
   "license": "MIT",
   "publishConfig": {
@@ -14,12 +14,14 @@
     "dev": "jest --watch",
     "test": "jest",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix"
+    "lint:fix": "eslint . --ext .ts --fix",
+    "generate-docs": "documentation build --config documentation.yml src/**/*.ts -f md -o Readme.md"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "^22.9.0",
     "@typescript-eslint/eslint-plugin": "^8.13.0",
+    "documentation": "^14.0.3",
     "eslit": "^6.0.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
