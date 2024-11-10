@@ -32,6 +32,7 @@ jobs:
         run: yarn generate-docs
 
       - name: Commit changes
+        continue-on-error: true
         run: |
           git add .
           git commit -m "docs: update documentation"
