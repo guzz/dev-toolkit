@@ -1,41 +1,46 @@
-runs-on: ubuntu-latest
+# .github/workflows/publish.yml
+name: Publish to npm
 
 on:
   push:
     branches:
       - main
 
-steps:
-  - name: Check out the repository
-    uses: actions/checkout@v3
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
 
-  - name: git config
-    run: |
-      git config user.name "guzz"
-      git config user.email "gsotero@gmail.com"
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
 
-  - name: Set up Node.js
-    uses: actions/setup-node@v3
-    with:
-      node-version: '22'
-      registry-url: 'https://registry.npmjs.org'
+      - name: git config
+        run: |
+          git config user.name "guzz"
+          git config user.email "gsotero@gmail.com"
 
-  - name: Install dependencies
-    run: yarn install
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
 
-  - name: Generate documentation
-    run: yarn generate-docs
+      - name: Install dependencies
+        run: yarn install
 
-  - name: Build the project
-    run: yarn build
+      - name: Generate documentation
+        run: yarn generate-docs
 
-  - name: Configure npm for publishing
-    run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-    env:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Build the project
+        run: yarn build
 
-  - name: Update version and publish
-    run: npx release-it --ci --npm.skipChecks
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Configure npm for publishing
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Update version and publish
+        run: npx release-it --ci --npm.skipChecks
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
