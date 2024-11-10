@@ -1,5 +1,10 @@
 runs-on: ubuntu-latest
 
+on:
+  push:
+    branches:
+      - main
+
 steps:
   - name: Check out the repository
     uses: actions/checkout@v3
