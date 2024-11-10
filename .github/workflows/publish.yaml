@@ -31,6 +31,12 @@ jobs:
       - name: Generate documentation
         run: yarn generate-docs
 
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "docs: update documentation"
+          git push
+
       - name: Build the project
         run: yarn build
 
